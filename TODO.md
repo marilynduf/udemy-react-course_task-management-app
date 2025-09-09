@@ -3,7 +3,8 @@
 ## To Do
 
 -   [ ] Task 1: Créer **composant Sidebar** (où l'on affiche la liste des
-        projets créés) - [ ] Task 3: Créer **composant Input**
+        projets créés)
+-   [ ] Task 3: Créer **composant Input**
 
 ---
 
