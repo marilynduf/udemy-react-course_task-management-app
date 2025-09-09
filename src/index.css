@@ -7,7 +7,36 @@
     color: #fff;
     border-top-right-radius: 30px;
 }
-#sidebar h2 {
+h2 {
     font-size: 30px;
     font-weight: 500;
+}
+button {
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #eee;
+    margin-right: 20px;
+}
+.btn-cancel {
+    background-color: #fff;
+}
+.btn-safe {
+    background-color: #00803b;
+    color: #fff;
+}
+input,
+textarea {
+    background-color: #cac9c9;
+    border-radius: 4px;
+    height: 30px;
+    min-width: 350px;
+    padding: 0 5px;
+}
+textarea {
+    height: 90px;
+}
+img {
+    width: auto;
+    height: 100px;
+    margin: 0 auto;
 }

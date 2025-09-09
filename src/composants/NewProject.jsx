@@ -1,16 +1,24 @@
-export default function NewProject() {
+import Input from "./Input";
+import { useRef } from "react";
+export default function NewProject({ handleCancel, handleSave }) {
+    const titre = useRef("");
+    const description = useRef("");
+    const dueDate = useRef("");
+
     return (
         <>
-            <div>
-                <button>Cancel</button>
-                <button>Save</button>
+            <h2>Ajouter un nouveau projet</h2>
+            <div className="flex justify-end">
+                <button onClick={handleCancel} className="btn-cancel">
+                    Cancel
+                </button>
+                <button onClick={handleSave} className="btn-safe">
+                    Save
+                </button>
             </div>
-            <p>Titre</p>
-            <input type="text" />
-            <p>Description</p>
-            <input type="text" />
-            <p>Date limite</p>
-            <input type="date" />
+            <Input label="Title" type="text"></Input>
+            <Input label="description" type="text" useTag="textarea"></Input>
+            <Input label="Due date" type="date"></Input>
         </>
     );
 }
