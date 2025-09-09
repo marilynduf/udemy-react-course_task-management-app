@@ -4,11 +4,11 @@
 
 -   [ ] Task 1: Créer **composant Sidebar** (où l'on affiche la liste des
         projets créés)
--   [ ] Task 3: Créer **composant Input**
+-   [ ] Task 2: Créer **composant Input**
 
 ---
 
--   [ ] Task 2: Créer **composant NewProject** (avec 3 inputs : titre,
+-   [ ] Task 3: Créer **composant NewProject** (avec 3 inputs : titre,
         description, date butoir)
 -   [ ] Task 4: Créer fonctionnalité : **Annuler** création du projet en cours
 -   [ ] Task 5: Créer fonctionnalité : **Enregistrer** projet
