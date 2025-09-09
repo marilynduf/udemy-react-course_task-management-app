@@ -1,4 +1,4 @@
-# Task management app - TODO List
+# Managment task application project - TODO List
 
 ## To Do
 
