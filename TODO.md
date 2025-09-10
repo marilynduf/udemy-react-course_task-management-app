@@ -4,7 +4,7 @@
 
 -   [x] Task 1: Créer **composant Sidebar** (où l'on affiche la liste des
         projets créés)
--   [ ] Task 2: Créer **composant Input**
+-   [x] Task 2: Créer **composant Input**
 
 ---
 

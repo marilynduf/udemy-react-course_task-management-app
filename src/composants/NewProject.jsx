@@ -1,12 +1,6 @@
 import Input from "./Input";
 
-export default function NewProject({
-    handleCancel,
-    handleSave,
-    titleRef,
-    descriptionRef,
-    dueDateRef,
-}) {
+export default function NewProject({ handleCancel, handleSave }) {
     return (
         <>
             <h2>Ajouter un nouveau projet</h2>
@@ -18,14 +12,9 @@ export default function NewProject({
                     Save
                 </button>
             </div>
-            <Input ref={titleRef} label="Title" type="text"></Input>
-            <Input
-                ref={descriptionRef}
-                label="description"
-                type="text"
-                useTag="textarea"
-            ></Input>
-            <Input ref={dueDateRef} label="Due date" type="date"></Input>
+            <Input label="Title" type="text"></Input>
+            <Input label="description" type="text" useTag="textarea"></Input>
+            <Input label="Due date" type="date"></Input>
         </>
     );
 }

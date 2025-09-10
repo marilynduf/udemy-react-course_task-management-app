@@ -1,29 +1,37 @@
 import SidebarProject from "../src/composants/SidebarProject";
 import NewProject from "../src/composants/NewProject";
-import imgPaperPencil from "../src/assets/no-projects.png";
+import Project from "../src/composants/Project";
+import NoProjectSelected from "../src/composants/NoProjectSelected";
 import { useState, useRef } from "react";
 
 function App() {
-    const [addingNewProject, setAddingNewProject] = useState(false);
-    const [projects, setProjects] = useState([]);
+    const [projectsState, setProjectsState] = useState({
+        selectedProjectId: undefined,
+        projects: [],
+    });
 
-    const title = useRef("");
-    const description = useRef("");
-    const dueDate = useRef("");
+    // Add project function
+    function handleAddProject() {
+        setProjectsState((prevState) => {
+            return {
+                ...prevState,
+                selectedProjectId: null,
+            };
+        });
+    }
 
-    function handleAddProjectClick() {
-        setAddingNewProject(true);
-    }
-    function handleCancel() {
-        setAddingNewProject(false);
-    }
-    function handleSave() {
-        const newProject = {
-            title: title.current.value,
-            description: description.current.value,
-            dueDate: dueDate.current.value,
-        };
-        setProjects((prevProjects) => [newProject, ...prevProjects]);
+    // Cancel function
+    function handleCancel() {}
+    // Cancel function
+    function handleSave() {}
+
+    let content;
+    if (projectsState.selectedProjectId === null) {
+        content = (
+            <NewProject handleSave={handleSave} handleCancel={handleCancel} />
+        );
+    } else if (projectsState.selectedProjectId === undefined) {
+        content = <NoProjectSelected handleAddProject={handleAddProject} />;
     }
 
     return (
@@ -32,36 +40,10 @@ function App() {
                 Marilyn's task managment app
             </h1>
             <div className="flex h-full bg-white">
-                <SidebarProject
-                    projects={projects}
-                    handleAddProjectClick={handleAddProjectClick}
-                />
+                <SidebarProject handleAddProject={handleAddProject} />
                 <main className="flex-1 p-8">
-                    {!addingNewProject && (
-                        <div className="flex flex-col items-center">
-                            <img
-                                src={imgPaperPencil}
-                                alt="Paper et pencil image"
-                            />
-                            <p>No Project Selected</p>
-                            <p>
-                                Select a project or get started with a new one
-                            </p>
-                            <button onClick={handleAddProjectClick}>
-                                + Create new project
-                            </button>
-                        </div>
-                    )}
-
-                    {addingNewProject && (
-                        <NewProject
-                            handleSave={handleSave}
-                            handleCancel={handleCancel}
-                            titleRef={title}
-                            descriptionRef={description}
-                            dueDateRef={dueDate}
-                        />
-                    )}
+                    {content}
+                    {/* {false && <Project />} */}
                 </main>
             </div>
         </>
