@@ -5,6 +5,10 @@ import NoProjectSelected from "../src/composants/NoProjectSelected";
 import { useState, useRef } from "react";
 
 function App() {
+    const titleRef = useRef();
+    const descriptionRef = useRef();
+    const duDateRef = useRef();
+
     const [projectsState, setProjectsState] = useState({
         selectedProjectId: undefined,
         projects: [],
@@ -28,7 +32,13 @@ function App() {
     let content;
     if (projectsState.selectedProjectId === null) {
         content = (
-            <NewProject handleSave={handleSave} handleCancel={handleCancel} />
+            <NewProject
+                handleSave={handleSave}
+                handleCancel={handleCancel}
+                titleRef={titleRef}
+                descriptionRef={descriptionRef}
+                duDateRef={duDateRef}
+            />
         );
     } else if (projectsState.selectedProjectId === undefined) {
         content = <NoProjectSelected handleAddProject={handleAddProject} />;

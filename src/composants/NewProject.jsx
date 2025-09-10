@@ -1,6 +1,6 @@
 import Input from "./Input";
 
-export default function NewProject({ handleCancel, handleSave }) {
+export default function NewProject({ handleCancel, handleSave, ...props }) {
     return (
         <>
             <h2>Ajouter un nouveau projet</h2>
