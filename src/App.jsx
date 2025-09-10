@@ -1,10 +1,15 @@
 import SidebarProject from "../src/composants/SidebarProject";
 import NewProject from "../src/composants/NewProject";
 import imgPaperPencil from "../src/assets/no-projects.png";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function App() {
     const [addingNewProject, setAddingNewProject] = useState(false);
+    const [projects, setProjects] = useState([]);
+
+    const title = useRef("");
+    const description = useRef("");
+    const dueDate = useRef("");
 
     function handleAddProjectClick() {
         setAddingNewProject(true);
@@ -13,8 +18,14 @@ function App() {
         setAddingNewProject(false);
     }
     function handleSave() {
-        console.log(titre.current.value);
+        const newProject = {
+            title: title.current.value,
+            description: description.current.value,
+            dueDate: dueDate.current.value,
+        };
+        setProjects((prevProjects) => [newProject, ...prevProjects]);
     }
+
     return (
         <>
             <h1 className="my-8 text-center text-5xl font-bold">
@@ -43,6 +54,9 @@ function App() {
                         <NewProject
                             handleSave={handleSave}
                             handleCancel={handleCancel}
+                            titleRef={title}
+                            descriptionRef={description}
+                            dueDateRef={dueDate}
                         />
                     )}
                 </main>

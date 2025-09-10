@@ -1,10 +1,12 @@
 import Input from "./Input";
-import { useRef } from "react";
-export default function NewProject({ handleCancel, handleSave }) {
-    const titre = useRef("");
-    const description = useRef("");
-    const dueDate = useRef("");
 
+export default function NewProject({
+    handleCancel,
+    handleSave,
+    titleRef,
+    descriptionRef,
+    dueDateRef,
+}) {
     return (
         <>
             <h2>Ajouter un nouveau projet</h2>
@@ -16,9 +18,14 @@ export default function NewProject({ handleCancel, handleSave }) {
                     Save
                 </button>
             </div>
-            <Input label="Title" type="text"></Input>
-            <Input label="description" type="text" useTag="textarea"></Input>
-            <Input label="Due date" type="date"></Input>
+            <Input ref={titleRef} label="Title" type="text"></Input>
+            <Input
+                ref={descriptionRef}
+                label="description"
+                type="text"
+                useTag="textarea"
+            ></Input>
+            <Input ref={dueDateRef} label="Due date" type="date"></Input>
         </>
     );
 }
