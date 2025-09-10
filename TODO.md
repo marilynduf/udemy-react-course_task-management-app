@@ -2,19 +2,19 @@
 
 ## To Do
 
--   [ ] Task 1: Créer **composant Sidebar** (où l'on affiche la liste des
+-   [x] Task 1: Créer **composant Sidebar** (où l'on affiche la liste des
         projets créés)
 -   [ ] Task 2: Créer **composant Input**
 
 ---
 
--   [ ] Task 3: Créer **composant NewProject** (avec 3 inputs : titre,
+-   [x] Task 3: Créer **composant NewProject** (avec 3 inputs : titre,
         description, date butoir)
--   [ ] Task 4: Créer fonctionnalité : **Annuler** création du projet en cours
--   [ ] Task 5: Créer fonctionnalité : **Enregistrer** projet
+-   [x] Task 4: Créer fonctionnalité : **Annuler** création du projet en cours
+-   [x] Task 5: Créer fonctionnalité : **Enregistrer** projet
 -   [ ] Task 6: Créer fonctionnalité : **Afficher** liste de projet(s) dans
         composant Sidebar
--   [ ] Task 7: Créer fonctionnalité : **Afficher** projet quand clique sur un
+-   [x] Task 7: Créer fonctionnalité : **Afficher** projet quand clique sur un
         projet dans Sidebar
 
 ---

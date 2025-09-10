@@ -32,7 +32,10 @@ function App() {
                 Marilyn's task managment app
             </h1>
             <div className="flex h-full bg-white">
-                <SidebarProject handleAddProjectClick={handleAddProjectClick} />
+                <SidebarProject
+                    projects={projects}
+                    handleAddProjectClick={handleAddProjectClick}
+                />
                 <main className="flex-1 p-8">
                     {!addingNewProject && (
                         <div className="flex flex-col items-center">
