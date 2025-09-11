@@ -1,6 +1,25 @@
 import Input from "./Input";
+import { useRef } from "react";
 
-export default function NewProject({ handleCancel, handleSave, ...props }) {
+export default function NewProject({ handleCancel, handleAddProject }) {
+    const titleRef = useRef();
+    const descriptionRef = useRef();
+    const duDateRef = useRef();
+
+    function handleSave() {
+        const enteredTitle = titleRef.current.value;
+        const enteredDescription = descriptionRef.current.value;
+        const enteredDueDate = duDateRef.current.value;
+
+        /// TODO validation
+
+        handleAddProject({
+            title: enteredTitle,
+            description: enteredDescription,
+            dueDate: enteredDueDate,
+        });
+    }
+
     return (
         <>
             <h2>Ajouter un nouveau projet</h2>
@@ -12,9 +31,16 @@ export default function NewProject({ handleCancel, handleSave, ...props }) {
                     Save
                 </button>
             </div>
-            <Input label="Title" type="text"></Input>
-            <Input label="description" type="text" useTag="textarea"></Input>
-            <Input label="Due date" type="date"></Input>
+            <div>
+                <Input ref={titleRef} label="Title" type="text"></Input>
+                <Input
+                    ref={descriptionRef}
+                    label="Description"
+                    type="text"
+                    useTag="textarea"
+                ></Input>
+                <Input ref={duDateRef} label="Due date" type="date"></Input>
+            </div>
         </>
     );
 }

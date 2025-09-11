@@ -2,20 +2,16 @@ import SidebarProject from "../src/composants/SidebarProject";
 import NewProject from "../src/composants/NewProject";
 import Project from "../src/composants/Project";
 import NoProjectSelected from "../src/composants/NoProjectSelected";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 function App() {
-    const titleRef = useRef();
-    const descriptionRef = useRef();
-    const duDateRef = useRef();
-
     const [projectsState, setProjectsState] = useState({
         selectedProjectId: undefined,
         projects: [],
     });
 
     // Add project function
-    function handleAddProject() {
+    function handleStartAddProject() {
         setProjectsState((prevState) => {
             return {
                 ...prevState,
@@ -24,33 +20,45 @@ function App() {
         });
     }
 
+    function handleAddProject(projectData) {
+        setProjectsState((prevState) => {
+            const newProject = {
+                ...projectData,
+                id: Math.random(),
+            };
+            return {
+                ...prevState,
+                projects: [...prevState.projects, newProject],
+            };
+        });
+    }
+
+    console.log(projectsState);
+
     // Cancel function
     function handleCancel() {}
-    // Cancel function
-    function handleSave() {}
 
     let content;
     if (projectsState.selectedProjectId === null) {
         content = (
             <NewProject
-                handleSave={handleSave}
                 handleCancel={handleCancel}
-                titleRef={titleRef}
-                descriptionRef={descriptionRef}
-                duDateRef={duDateRef}
+                handleAddProject={handleAddProject}
             />
         );
     } else if (projectsState.selectedProjectId === undefined) {
-        content = <NoProjectSelected handleAddProject={handleAddProject} />;
+        content = (
+            <NoProjectSelected handleAddProject={handleStartAddProject} />
+        );
     }
-
+    // console.log(titleRef.current.textContent);
     return (
         <>
             <h1 className="my-8 text-center text-5xl font-bold">
                 Marilyn's task managment app
             </h1>
             <div className="flex h-full bg-white">
-                <SidebarProject handleAddProject={handleAddProject} />
+                <SidebarProject handleAddProject={handleStartAddProject} />
                 <main className="flex-1 p-8">
                     {content}
                     {/* {false && <Project />} */}
