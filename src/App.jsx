@@ -33,8 +33,6 @@ function App() {
         });
     }
 
-    console.log(projectsState);
-
     // Cancel function
     function handleCancel() {}
 
@@ -51,14 +49,19 @@ function App() {
             <NoProjectSelected handleAddProject={handleStartAddProject} />
         );
     }
-    // console.log(titleRef.current.textContent);
+
+    console.log(projectsState);
+
     return (
         <>
             <h1 className="my-8 text-center text-5xl font-bold">
                 Marilyn's task managment app
             </h1>
             <div className="flex h-full bg-white">
-                <SidebarProject handleAddProject={handleStartAddProject} />
+                <SidebarProject
+                    projectsData={projectsState.projects}
+                    handleAddProject={handleStartAddProject}
+                />
                 <main className="flex-1 p-8">
                     {content}
                     {/* {false && <Project />} */}

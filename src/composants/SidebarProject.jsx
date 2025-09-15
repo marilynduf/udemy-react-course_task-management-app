@@ -1,5 +1,5 @@
 import Button from "./Button";
-export default function SidebarProject({ handleAddProject }) {
+export default function SidebarProject({ projectsData, handleAddProject }) {
     return (
         <aside id="sidebar" className="w-80 min-w-64 p-8">
             <h2>Your project</h2>
@@ -9,11 +9,16 @@ export default function SidebarProject({ handleAddProject }) {
             >
                 + Add project
             </Button>
-            {/* {projects.map((projet, index) => (
-                <button id={index} className="btn-project-list" key={index}>
-                    titre
-                </button>
-            ))} */}
+
+            {projectsData.map((project, index) => (
+                <Button
+                    id={project.id}
+                    className="btn-project-list w-full text-left"
+                    key={project.id}
+                >
+                    {project.title}
+                </Button>
+            ))}
         </aside>
     );
 }
