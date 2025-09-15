@@ -1,5 +1,5 @@
 import Input from "./Input";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function NewProject({ handleCancel, handleAddProject }) {
     const titleRef = useRef();
@@ -11,7 +11,15 @@ export default function NewProject({ handleCancel, handleAddProject }) {
         const enteredDescription = descriptionRef.current.value;
         const enteredDueDate = duDateRef.current.value;
 
-        /// TODO validation
+        let errorForm = false;
+        if (
+            enteredTitle.trim() === "" ||
+            enteredDescription.trim() === "" ||
+            enteredDueDate.trim() === ""
+        ) {
+            errorForm = true;
+            return;
+        }
 
         handleAddProject({
             title: enteredTitle,
