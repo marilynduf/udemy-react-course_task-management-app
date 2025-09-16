@@ -5,6 +5,7 @@ import NoProjectSelected from "../src/composants/NoProjectSelected";
 import { useState } from "react";
 
 function App() {
+    console.log("render APP");
     const [projectsState, setProjectsState] = useState({
         selectedProjectId: undefined,
         projects: [],
@@ -21,6 +22,7 @@ function App() {
     }
 
     function handleAddProject(projectData) {
+        console.log("got in handleAddProject");
         setProjectsState((prevState) => {
             const projectId = Math.random();
             const newProject = {
@@ -29,7 +31,7 @@ function App() {
             };
             return {
                 ...prevState,
-                selectedProjectId: projectId,
+                selectedProjectId: undefined,
                 projects: [...prevState.projects, newProject],
             };
         });
@@ -37,13 +39,14 @@ function App() {
 
     let content;
     if (projectsState.selectedProjectId === null) {
-        content = <NewProject handleAddProject={handleAddProject} />;
+        content = <NewProject onAddProject={handleAddProject} />;
     } else if (projectsState.selectedProjectId === undefined) {
         content = (
-            <NoProjectSelected handleAddProject={handleStartAddProject} />
+            <NoProjectSelected onStartAddProject={handleStartAddProject} />
         );
     }
 
+    console.log(projectsState.selectedProjectId);
     return (
         <>
             <h1 className="my-8 text-center text-5xl font-bold">
@@ -52,12 +55,9 @@ function App() {
             <div className="flex h-full bg-white">
                 <SidebarProject
                     projectsData={projectsState.projects}
-                    handleAddProject={handleStartAddProject}
+                    onStartAddProject={handleStartAddProject}
                 />
-                <main className="flex-1 p-8">
-                    {content}
-                    {/* {false && <Project />} */}
-                </main>
+                <main className="flex-1 p-8">{content}</main>
             </div>
         </>
     );

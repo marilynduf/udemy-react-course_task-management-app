@@ -2,7 +2,7 @@ import Input from "./Input";
 import Modal from "./Modal";
 import { useRef } from "react";
 
-export default function NewProject({ handleCancel, handleAddProject }) {
+export default function NewProject({ handleCancel, onAddProject }) {
     const modal = useRef();
     const titleRef = useRef();
     const descriptionRef = useRef();
@@ -19,10 +19,11 @@ export default function NewProject({ handleCancel, handleAddProject }) {
             enteredDueDate.trim() === ""
         ) {
             modal.current.open();
+            console.log("as opened");
             return;
         }
 
-        handleAddProject({
+        onAddProject({
             title: enteredTitle,
             description: enteredDescription,
             dueDate: enteredDueDate,
