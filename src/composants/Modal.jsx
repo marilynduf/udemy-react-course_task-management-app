@@ -1,5 +1,5 @@
-import { useImperativeHandle, useRef } from "react";
 import Button from "./Button";
+import { useImperativeHandle, useRef } from "react";
 import { createPortal } from "react-dom";
 
 export default function Modal({ children, buttonCaption, ref }) {
@@ -18,7 +18,7 @@ export default function Modal({ children, buttonCaption, ref }) {
             className="backdrop:bg-stone-900/90 p-4 rounded-md"
         >
             {children}
-            <form action="dialog">
+            <form method="dialog">
                 <Button>{buttonCaption}</Button>
             </form>
         </dialog>,
