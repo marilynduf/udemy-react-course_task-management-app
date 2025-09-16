@@ -1,7 +1,9 @@
 import Input from "./Input";
-import { useRef, useState } from "react";
+import Modal from "./Modal";
+import { useRef } from "react";
 
 export default function NewProject({ handleCancel, handleAddProject }) {
+    const modal = useRef();
     const titleRef = useRef();
     const descriptionRef = useRef();
     const duDateRef = useRef();
@@ -11,13 +13,12 @@ export default function NewProject({ handleCancel, handleAddProject }) {
         const enteredDescription = descriptionRef.current.value;
         const enteredDueDate = duDateRef.current.value;
 
-        let errorForm = false;
         if (
             enteredTitle.trim() === "" ||
             enteredDescription.trim() === "" ||
             enteredDueDate.trim() === ""
         ) {
-            errorForm = true;
+            modal.current.open();
             return;
         }
 
@@ -30,6 +31,9 @@ export default function NewProject({ handleCancel, handleAddProject }) {
 
     return (
         <>
+            <Modal ref={modal} buttonCaption="ok">
+                <h2>Error in form</h2>
+            </Modal>
             <h2>Ajouter un nouveau projet</h2>
             <div className="flex justify-end">
                 <button onClick={handleCancel} className="btn-cancel">
