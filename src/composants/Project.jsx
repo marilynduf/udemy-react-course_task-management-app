@@ -1,8 +1,17 @@
-export default function Project({}) {
+export default function Project({ project }) {
     console.log("PROJECT rendered");
+
+    // Add formatted date here
+
     return (
         <>
-            <h2>Détails du Projet</h2>
+            <div>
+                <h2>TITLE</h2>
+                <button>Delete</button>
+            </div>
+            <p>DATE</p>
+            <p>DESCRIPTION</p>
+            <p>TASKS</p>
         </>
     );
 }
