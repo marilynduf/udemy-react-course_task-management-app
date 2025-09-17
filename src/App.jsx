@@ -37,13 +37,22 @@ function App() {
         });
     }
 
-    let content;
+    let content = <Project />;
     if (projectsState.selectedProjectId === null) {
         content = <NewProject onAddProject={handleAddProject} />;
     } else if (projectsState.selectedProjectId === undefined) {
         content = (
             <NoProjectSelected onStartAddProject={handleStartAddProject} />
         );
+    }
+
+    function handleSelectProject(id) {
+        setProjectsState((prevState) => {
+            return {
+                ...prevState,
+                selectedProjectId: id,
+            };
+        });
     }
 
     console.log(projectsState.selectedProjectId);
@@ -56,6 +65,7 @@ function App() {
                 <SidebarProject
                     projectsData={projectsState.projects}
                     onStartAddProject={handleStartAddProject}
+                    onSelectProject={handleSelectProject}
                 />
                 <main className="flex-1 p-8">{content}</main>
             </div>
