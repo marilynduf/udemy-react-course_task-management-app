@@ -37,7 +37,11 @@ function App() {
         });
     }
 
-    let content = <Project />;
+    const selectedProject = projectsState.projects.find(
+        (project) => project.id === projectsState.selectedProjectId
+    );
+
+    let content = <Project project={selectedProject} />;
     if (projectsState.selectedProjectId === null) {
         content = <NewProject onAddProject={handleAddProject} />;
     } else if (projectsState.selectedProjectId === undefined) {

@@ -28,7 +28,7 @@ export default function SidebarProject({
                 return (
                     <Button
                         ref={projectId}
-                        onClick={onSelectProject}
+                        onClick={() => onSelectProject(project.id)}
                         id={project.id}
                         className={cssClasses}
                         key={project.id}

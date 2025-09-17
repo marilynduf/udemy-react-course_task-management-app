@@ -1,16 +1,14 @@
 export default function Project({ project }) {
-    console.log("PROJECT rendered");
-
     // Add formatted date here
 
     return (
         <>
             <div>
-                <h2>TITLE</h2>
+                <h2>{project.title}</h2>
                 <button>Delete</button>
             </div>
-            <p>DATE</p>
-            <p>DESCRIPTION</p>
+            <p>{project.dueDate}</p>
+            <p>{project.description}</p>
             <p>TASKS</p>
         </>
     );
