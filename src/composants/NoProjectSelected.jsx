@@ -6,7 +6,9 @@ export default function NoProjectSelected({ onStartAddProject }) {
             <img src={imgPaperPencil} alt="Paper et pencil image" />
             <h2>No Project Selected</h2>
             <p>Select a project or get started with a new one</p>
-            <Button onClick={onStartAddProject}>+ Add project</Button>
+            <Button className="btn-add" onClick={onStartAddProject}>
+                + Add project
+            </Button>
         </div>
     );
 }

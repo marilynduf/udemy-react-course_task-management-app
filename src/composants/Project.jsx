@@ -1,11 +1,13 @@
-export default function Project({ project }) {
+export default function Project({ project, onDeleteProject }) {
     // Add formatted date here
 
     return (
         <>
             <div>
                 <h2>{project.title}</h2>
-                <button>Delete</button>
+                <button onClick={onDeleteProject} className="btn-cancel">
+                    Delete
+                </button>
             </div>
             <p>{project.dueDate}</p>
             <p>{project.description}</p>

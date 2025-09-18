@@ -20,6 +20,8 @@ export default function SidebarProject({
 
             {projectsData.map((project) => {
                 let cssClasses = `btn-project-list w-full text-left px-2 py-1 rounded-sm hover:text-stone-200 hover:bg-stone-800`;
+                console.log("selectedProjectId: " + selectedProjectId);
+                console.log("project.id: " + project.id);
                 if (project.id === selectedProjectId) {
                     cssClasses += " bg-stone-800 text-stone-200";
                 } else {

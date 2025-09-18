@@ -37,19 +37,6 @@ function App() {
         });
     }
 
-    const selectedProject = projectsState.projects.find(
-        (project) => project.id === projectsState.selectedProjectId
-    );
-
-    let content = <Project project={selectedProject} />;
-    if (projectsState.selectedProjectId === null) {
-        content = <NewProject onAddProject={handleAddProject} />;
-    } else if (projectsState.selectedProjectId === undefined) {
-        content = (
-            <NoProjectSelected onStartAddProject={handleStartAddProject} />
-        );
-    }
-
     function handleSelectProject(id) {
         setProjectsState((prevState) => {
             return {
@@ -57,6 +44,36 @@ function App() {
                 selectedProjectId: id,
             };
         });
+    }
+
+    function handleDeleteProject() {
+        setProjectsState((prevState) => {
+            return {
+                ...prevState,
+                selectedProjectId: undefined,
+                projects: prevState.projects.filter(
+                    (project) => project.id !== prevState.selectedProjectId
+                ),
+            };
+        });
+    }
+
+    const selectedProject = projectsState.projects.find(
+        (project) => project.id === projectsState.selectedProjectId
+    );
+
+    let content = (
+        <Project
+            onDeleteProject={handleDeleteProject}
+            project={selectedProject}
+        />
+    );
+    if (projectsState.selectedProjectId === null) {
+        content = <NewProject onAddProject={handleAddProject} />;
+    } else if (projectsState.selectedProjectId === undefined) {
+        content = (
+            <NoProjectSelected onStartAddProject={handleStartAddProject} />
+        );
     }
 
     console.log(projectsState.selectedProjectId);
@@ -70,6 +87,7 @@ function App() {
                     projectsData={projectsState.projects}
                     onStartAddProject={handleStartAddProject}
                     onSelectProject={handleSelectProject}
+                    selectedProjectId={projectsState.selectedProjectId}
                 />
                 <main className="flex-1 p-8">{content}</main>
             </div>
