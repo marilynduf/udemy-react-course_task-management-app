@@ -1,4 +1,5 @@
-export default function Project({ project, onDeleteProject }) {
+import Task from "../composants/Task";
+export default function Project({ project, onDeleteProject, onAddTask }) {
     // Add formatted date here
 
     return (
@@ -11,7 +12,7 @@ export default function Project({ project, onDeleteProject }) {
             </div>
             <p>{project.dueDate}</p>
             <p>{project.description}</p>
-            <p>TASKS</p>
+            <Task onAddTask={onAddTask} project={project}></Task>
         </>
     );
 }

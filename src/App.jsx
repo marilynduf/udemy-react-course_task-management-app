@@ -58,6 +58,10 @@ function App() {
         });
     }
 
+    function handleAddTask() {
+        //TODO
+    }
+
     const selectedProject = projectsState.projects.find(
         (project) => project.id === projectsState.selectedProjectId
     );
@@ -65,6 +69,7 @@ function App() {
     let content = (
         <Project
             onDeleteProject={handleDeleteProject}
+            onAddTask={handleAddTask}
             project={selectedProject}
         />
     );
