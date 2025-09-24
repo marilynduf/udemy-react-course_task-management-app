@@ -1,7 +1,5 @@
 import Task from "../composants/Task";
 export default function Project({ project, onDeleteProject, onAddTask }) {
-    // Add formatted date here
-
     return (
         <>
             <div>

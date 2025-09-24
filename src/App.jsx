@@ -5,10 +5,10 @@ import NoProjectSelected from "../src/composants/NoProjectSelected";
 import { useState } from "react";
 
 function App() {
-    console.log("render APP");
     const [projectsState, setProjectsState] = useState({
         selectedProjectId: undefined,
         projects: [],
+        tasks: [],
     });
 
     // Add project function
@@ -22,7 +22,6 @@ function App() {
     }
 
     function handleAddProject(projectData) {
-        console.log("got in handleAddProject");
         setProjectsState((prevState) => {
             const projectId = Math.random();
             const newProject = {
@@ -58,8 +57,19 @@ function App() {
         });
     }
 
-    function handleAddTask() {
-        //TODO
+    function handleAddTask(text) {
+        console.log(text);
+        setProjectsState((prevState) => {
+            const newTask = {
+                id: Math.random(),
+                text: text,
+                projectId: prevState.selectedProjectId,
+            };
+            return {
+                ...prevState,
+                tasks: [...prevState.tasks, newTask],
+            };
+        });
     }
 
     const selectedProject = projectsState.projects.find(
@@ -81,7 +91,6 @@ function App() {
         );
     }
 
-    console.log(projectsState.selectedProjectId);
     return (
         <>
             <h1 className="my-8 text-center text-5xl font-bold">
