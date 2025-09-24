@@ -26,19 +26,23 @@ export default function Task({ onAddTask, onDeleteTask, projectTasks }) {
             </button>
 
             <ul className="tasks-list">
-                {projectTasks.map((task) => {
-                    return (
-                        <div className="flex items-center">
-                            <li key={task.id}>{task.text}</li>
-                            <button
-                                onClick={() => handleDeleteTask(task.id)}
-                                className="btn-delete-task"
-                            >
-                                delete
-                            </button>
-                        </div>
-                    );
-                })}
+                {projectTasks.length !== 0 ? (
+                    projectTasks.map((task) => {
+                        return (
+                            <div className="flex items-center">
+                                <li key={task.id}>{task.text}</li>
+                                <button
+                                    onClick={() => handleDeleteTask(task.id)}
+                                    className="btn-delete-task"
+                                >
+                                    delete
+                                </button>
+                            </div>
+                        );
+                    })
+                ) : (
+                    <p>Pas de tâche dans ce projet</p>
+                )}
             </ul>
         </section>
     );
