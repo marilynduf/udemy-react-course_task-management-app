@@ -7,10 +7,10 @@ export default function Project({
 }) {
     return (
         <>
-            <div>
+            <div className="flex justify-between">
                 <h2>{project.title}</h2>
                 <button onClick={onDeleteProject} className="btn-cancel">
-                    Delete
+                    Delete project
                 </button>
             </div>
             <p>{project.dueDate}</p>
