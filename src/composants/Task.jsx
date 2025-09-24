@@ -17,7 +17,7 @@ export default function Task({ onAddTask, project, projectTasks }) {
                 onChange={(e) => handleOnChange(e)}
                 value={enteredText}
             />
-            <button className="btn-add" onClick={handleOnClick}>
+            <button className="btn-add btn-task" onClick={handleOnClick}>
                 Add task
             </button>
 
