@@ -1,4 +1,3 @@
-import TasksList from "./TasksList";
 import { useState } from "react";
 export default function Task({ onAddTask, project, projectTasks }) {
     const [enteredText, setEnteredText] = useState("");
@@ -21,7 +20,7 @@ export default function Task({ onAddTask, project, projectTasks }) {
             <button className="btn-add" onClick={handleOnClick}>
                 Add task
             </button>
-            s
+
             <ul>
                 {projectTasks.map((task) => {
                     return (
