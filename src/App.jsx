@@ -73,12 +73,9 @@ function App() {
 
     function onDeleteTask(taskId) {
         setProjectsState((prevState) => {
-            const newTasksArray = prevState.tasks.filter(
-                (task) => task.id !== taskId
-            );
             return {
                 ...prevState,
-                tasks: newTasksArray,
+                tasks: prevState.tasks.filter((task) => task.id !== taskId),
             };
         });
     }
