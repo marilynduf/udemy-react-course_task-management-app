@@ -1,3 +1,4 @@
+import TasksList from "./TasksList";
 import { useState } from "react";
 export default function Task({ onAddTask, project, projectTasks }) {
     const [enteredText, setEnteredText] = useState("");
@@ -17,10 +18,18 @@ export default function Task({ onAddTask, project, projectTasks }) {
                 onChange={(e) => handleOnChange(e)}
                 value={enteredText}
             />
-            <button onClick={handleOnClick}>Add task</button>
+            <button className="btn-add" onClick={handleOnClick}>
+                Add task
+            </button>
+            s
             <ul>
                 {projectTasks.map((task) => {
-                    return <li key={task.id}>{task.text}</li>;
+                    return (
+                        <div className="flex items-center">
+                            <li key={task.id}>{task.text}</li>
+                            <button className="btn-delete-task">delete</button>
+                        </div>
+                    );
                 })}
             </ul>
         </>

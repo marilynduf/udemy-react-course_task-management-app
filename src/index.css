@@ -14,7 +14,6 @@ h2 {
 button {
     padding: 10px;
     border-radius: 6px;
-    /* background-color: #eee; */
     margin-right: 20px;
 }
 .btn-cancel,
@@ -24,6 +23,11 @@ button {
 .btn-safe {
     background-color: #00803b;
     color: #fff;
+}
+.btn-delete-task {
+    padding: 4px 8px;
+    margin-left: 8px;
+    background-color: gold;
 }
 input,
 textarea {
