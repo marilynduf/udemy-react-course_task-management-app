@@ -71,6 +71,18 @@ function App() {
         });
     }
 
+    function onDeleteTask(taskId) {
+        setProjectsState((prevState) => {
+            const newTasksArray = prevState.tasks.filter(
+                (task) => task.id !== taskId
+            );
+            return {
+                ...prevState,
+                tasks: newTasksArray,
+            };
+        });
+    }
+
     const selectedProject = projectsState.projects.find(
         (project) => project.id === projectsState.selectedProjectId
     );
@@ -85,6 +97,7 @@ function App() {
             onAddTask={handleAddTask}
             project={selectedProject}
             projectTasks={projectTasks}
+            onDeleteTask={onDeleteTask}
         />
     );
     if (projectsState.selectedProjectId === null) {

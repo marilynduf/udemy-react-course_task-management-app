@@ -1,5 +1,6 @@
 import { useState } from "react";
-export default function Task({ onAddTask, project, projectTasks }) {
+import { jsx } from "react/jsx-runtime";
+export default function Task({ onAddTask, onDeleteTask, projectTasks }) {
     const [enteredText, setEnteredText] = useState("");
     function handleOnChange(e) {
         setEnteredText(e.target.value);
@@ -8,9 +9,12 @@ export default function Task({ onAddTask, project, projectTasks }) {
         onAddTask(enteredText);
         setEnteredText("");
     }
+    function handleDeleteTask(taskId) {
+        onDeleteTask(taskId);
+    }
 
     return (
-        <>
+        <section className="tasks">
             <h2>Task</h2>
             <input
                 type="text"
@@ -26,11 +30,16 @@ export default function Task({ onAddTask, project, projectTasks }) {
                     return (
                         <div className="flex items-center">
                             <li key={task.id}>{task.text}</li>
-                            <button className="btn-delete-task">delete</button>
+                            <button
+                                onClick={() => handleDeleteTask(task.id)}
+                                className="btn-delete-task"
+                            >
+                                delete
+                            </button>
                         </div>
                     );
                 })}
             </ul>
-        </>
+        </section>
     );
 }

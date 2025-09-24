@@ -3,6 +3,7 @@ export default function Project({
     project,
     onDeleteProject,
     onAddTask,
+    onDeleteTask,
     projectTasks,
 }) {
     return (
@@ -19,6 +20,7 @@ export default function Project({
                 onAddTask={onAddTask}
                 project={project}
                 projectTasks={projectTasks}
+                onDeleteTask={onDeleteTask}
             ></Task>
         </>
     );
