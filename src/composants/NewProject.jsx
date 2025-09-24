@@ -19,7 +19,6 @@ export default function NewProject({ handleCancel, onAddProject }) {
             enteredDueDate.trim() === ""
         ) {
             modal.current.open();
-            console.log("as opened");
             return;
         }
 
