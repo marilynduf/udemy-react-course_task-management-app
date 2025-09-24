@@ -21,7 +21,7 @@ export default function Task({ onAddTask, project, projectTasks }) {
                 Add task
             </button>
 
-            <ul>
+            <ul className="tasks-list">
                 {projectTasks.map((task) => {
                     return (
                         <div className="flex items-center">

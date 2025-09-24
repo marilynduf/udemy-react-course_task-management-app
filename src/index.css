@@ -52,3 +52,7 @@ img {
     color: #aaaaaa;
     background-color: rgb(54, 54, 54);
 }
+.tasks-list div {
+    border-bottom: 1px solid black;
+    padding: 8px 0;
+}
