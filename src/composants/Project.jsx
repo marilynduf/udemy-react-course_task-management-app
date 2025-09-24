@@ -1,5 +1,10 @@
 import Task from "../composants/Task";
-export default function Project({ project, onDeleteProject, onAddTask }) {
+export default function Project({
+    project,
+    onDeleteProject,
+    onAddTask,
+    projectTasks,
+}) {
     return (
         <>
             <div>
@@ -10,7 +15,11 @@ export default function Project({ project, onDeleteProject, onAddTask }) {
             </div>
             <p>{project.dueDate}</p>
             <p>{project.description}</p>
-            <Task onAddTask={onAddTask} project={project}></Task>
+            <Task
+                onAddTask={onAddTask}
+                project={project}
+                projectTasks={projectTasks}
+            ></Task>
         </>
     );
 }

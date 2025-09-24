@@ -1,5 +1,5 @@
 import { useState } from "react";
-export default function Task({ onAddTask, project }) {
+export default function Task({ onAddTask, project, projectTasks }) {
     const [enteredText, setEnteredText] = useState("");
     function handleOnChange(e) {
         setEnteredText(e.target.value);
@@ -19,9 +19,9 @@ export default function Task({ onAddTask, project }) {
             />
             <button onClick={handleOnClick}>Add task</button>
             <ul>
-                <li></li>
-                <li></li>
-                <li></li>
+                {projectTasks.map((task) => {
+                    return <li key={task.id}>{task.text}</li>;
+                })}
             </ul>
         </>
     );
