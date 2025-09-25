@@ -2,7 +2,7 @@ import Input from "./Input";
 import Modal from "./Modal";
 import { useRef } from "react";
 
-export default function NewProject({ handleCancel, onAddProject }) {
+export default function NewProject({ onCancelProject, onAddProject }) {
     const modal = useRef();
     const titleRef = useRef();
     const descriptionRef = useRef();
@@ -36,7 +36,7 @@ export default function NewProject({ handleCancel, onAddProject }) {
             </Modal>
             <h2>Ajouter un nouveau projet</h2>
             <div className="flex justify-end">
-                <button onClick={handleCancel} className="btn-cancel">
+                <button onClick={onCancelProject} className="btn-cancel">
                     Cancel
                 </button>
                 <button onClick={handleSave} className="btn-safe">
