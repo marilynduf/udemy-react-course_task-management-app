@@ -18,15 +18,20 @@ export default function Task({ onAddTask, onDeleteTask, projectTasks }) {
 
     return (
         <section className="tasks">
-            <h2>Task</h2>
-            <input
-                type="text"
-                onChange={(e) => handleOnChange(e)}
-                value={enteredText}
-            />
-            <button className="btn-add btn-task" onClick={handleOnClick}>
-                Add task
-            </button>
+            <div className="tasks-add-area">
+                <h2>Task</h2>
+                <input
+                    type="text"
+                    onChange={(e) => handleOnChange(e)}
+                    value={enteredText}
+                />
+                <button
+                    className="btn-add btn-add-task"
+                    onClick={handleOnClick}
+                >
+                    Add task
+                </button>
+            </div>
 
             <ul className="tasks-list">
                 {projectTasks.length !== 0 ? (

@@ -14,8 +14,8 @@ export default function Project({
                     Delete project
                 </button>
             </div>
-            <p>{project.dueDate}</p>
-            <p>{project.description}</p>
+            <p className="project-date">{project.dueDate}</p>
+            <p className="mb-[20px] mt-[20px]">{project.description}</p>
             <Task
                 onAddTask={onAddTask}
                 project={project}
