@@ -6,6 +6,9 @@ export default function Task({ onAddTask, onDeleteTask, projectTasks }) {
         setEnteredText(e.target.value);
     }
     function handleOnClick() {
+        if (enteredText.trim() === "") {
+            return;
+        }
         onAddTask(enteredText);
         setEnteredText("");
     }
