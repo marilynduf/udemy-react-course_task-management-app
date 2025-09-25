@@ -119,7 +119,7 @@ function App() {
 
     return (
         <>
-            <h1 className="my-8 text-center text-5xl font-bold">
+            <h1 className="my-8 text-center text-5xl">
                 Marilyn's task managment app
             </h1>
             <div className="flex h-full bg-white">
