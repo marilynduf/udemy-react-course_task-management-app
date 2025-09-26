@@ -49,7 +49,7 @@ export default function Task({ onAddTask, onDeleteTask, projectTasks }) {
                         );
                     })
                 ) : (
-                    <p>Pas de tâche dans ce projet</p>
+                    <p className="msg-no-tasks">Pas de tâche dans ce projet</p>
                 )}
             </ul>
         </section>

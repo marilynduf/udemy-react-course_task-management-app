@@ -83,3 +83,10 @@ img {
     color: gray;
     font-size: 14px;
 }
+.tasks-list {
+    text-align: center;
+}
+.msg-no-tasks {
+    margin-top: 50px;
+    color: rgb(151, 151, 151);
+}
