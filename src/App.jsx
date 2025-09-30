@@ -18,7 +18,6 @@ function App() {
 
     function handleAddTask(text) {
         const projectId = projectState.selectedProjectId;
-        console.log(projectId);
         dispatchTasksAcions({
             type: "ADD_TASK",
             payload: { text: text, selectedProjectIdTest: projectId },

@@ -9,7 +9,6 @@ export function tasksReducer(state, action) {
             tasks: [...state.tasks, newTask],
         };
     } else if (action.type === "DELETE_TASK") {
-        console.log(action.payload.id);
         return {
             ...state,
             tasks: state.tasks.filter((task) => task.id !== action.payload.id),
