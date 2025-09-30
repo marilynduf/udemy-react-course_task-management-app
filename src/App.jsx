@@ -4,7 +4,7 @@ import Project from "../src/composants/Project";
 import NoProjectSelected from "../src/composants/NoProjectSelected";
 import { tasksReducer } from "./composants/reducers/task.reducer";
 import { projectReducer } from "./composants/reducers/project.reducer";
-import { useState, useReducer } from "react";
+import { useReducer } from "react";
 
 function App() {
     const [projectState, dispatchProjectAcions] = useReducer(projectReducer, {
