@@ -7,7 +7,7 @@ import { projectReducer } from "./composants/reducers/project.reducer";
 import { useReducer } from "react";
 
 function App() {
-    const [projectState, dispatchProjectAcions] = useReducer(projectReducer, {
+    const [projectsState, dispatchProjectAcions] = useReducer(projectReducer, {
         selectedProjectId: undefined,
         projects: [],
     });
@@ -17,7 +17,7 @@ function App() {
     });
 
     function handleAddTask(text) {
-        const projectId = projectState.selectedProjectId;
+        const projectId = projectsState.selectedProjectId;
         dispatchTasksAcions({
             type: "ADD_TASK",
             payload: { text: text, selectedProjectIdTest: projectId },
@@ -64,12 +64,12 @@ function App() {
         dispatchTasksAcions({ type: "DELETE_TASK", payload: { id: taskId } });
     }
 
-    const selectedProject = projectState.projects.find(
-        (project) => project.id === projectState.selectedProjectId
+    const selectedProject = projectsState.projects.find(
+        (project) => project.id === projectsState.selectedProjectId
     );
 
     const projectTasks = tasksState.tasks.filter(
-        (task) => task.projectIdInTask === projectState.selectedProjectId
+        (task) => task.projectIdInTask === projectsState.selectedProjectId
     );
 
     let content = (
@@ -81,14 +81,14 @@ function App() {
             onDeleteTask={onDeleteTask}
         />
     );
-    if (projectState.selectedProjectId === null) {
+    if (projectsState.selectedProjectId === null) {
         content = (
             <NewProject
                 onAddProject={handleAddProject}
                 onCancelProject={handleCancel}
             />
         );
-    } else if (projectState.selectedProjectId === undefined) {
+    } else if (projectsState.selectedProjectId === undefined) {
         content = (
             <NoProjectSelected onStartAddProject={handleStartAddProject} />
         );
@@ -101,10 +101,10 @@ function App() {
             </h1>
             <div className="flex h-full bg-white">
                 <SidebarProject
-                    projectsData={projectState.projects}
+                    projectsData={projectsState.projects}
                     onStartAddProject={handleStartAddProject}
                     onSelectProject={handleSelectProject}
-                    selectedProjectId={projectState.selectedProjectId}
+                    selectedProjectId={projectsState.selectedProjectId}
                 />
                 <main className="flex-1 p-8">{content}</main>
             </div>
