@@ -7,10 +7,6 @@ import { projectReducer } from "./composants/reducers/project.reducer";
 import { useState, useReducer } from "react";
 
 function App() {
-    const [projectsState, setProjectsState] = useState({
-        selectedProjectId: undefined,
-        projects: [],
-    });
     const [projectState, dispatchProjectAcions] = useReducer(projectReducer, {
         selectedProjectId: undefined,
         projects: [],
