@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { jsx } from "react/jsx-runtime";
 export default function Task({ onAddTask, onDeleteTask, projectTasks }) {
     const [enteredText, setEnteredText] = useState("");
     function handleOnChange(e) {
